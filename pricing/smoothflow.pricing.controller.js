@@ -842,6 +842,7 @@ angular
             $scope.sfPricingEstimation.selectedPlan = pack;
             tempSelectedPlanTrans = pack.DT;
             tempSelectedPlanDisk = pack.BS;
+            $scope.selectedComPlan = {};
             $.each($scope.sfPackages, function (i, p) {
                 p.active = false;
                 if (p.name === pack.name) {
