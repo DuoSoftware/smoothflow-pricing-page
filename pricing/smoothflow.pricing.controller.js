@@ -2,6 +2,8 @@ angular
     .module('sfPricing', [])
     .controller('sfPricingController', ['$scope', function ($scope) {
         $scope.activeFeatures = [];
+        var tempSelectedPlanTrans = 0;
+        var tempSelectedPlanDisk = 0;
         $scope.sfPackages = [
             {
                 name : "Free Plan",
@@ -11,7 +13,7 @@ angular
                     {
                         cat : 'Chatbots',
                         features : [{
-                            name : '500 Audiences Included',
+                            name : '500 Audiences included',
                             active : true
                         },{
                             name : '1 ChatBots included',
@@ -96,6 +98,9 @@ angular
                             active : false
                         }]
                     }],
+                AHCP : '',
+                DT : 0,
+                BS : 0,
                 active : true
             },{
                 name : "Self manage Plan",
@@ -105,7 +110,7 @@ angular
                     {
                         cat : 'Chatbots',
                         features : [{
-                            name : '1000 Audiences Included',
+                            name : '1000 Audiences included',
                             active : true
                         },{
                             name : 'Unlimited Paid Audience',
@@ -190,6 +195,9 @@ angular
                             active : false
                         }]
                     }],
+                AHCP : '1 VCore, 0.5GB Memory, 20GB SSD Storage, 1TB Data Transfer',
+                DT : 1,
+                BS : 20,
                 active : false
             },{
                 name : "Kick Starter Plan",
@@ -199,7 +207,7 @@ angular
                     {
                         cat : 'Chatbots',
                         features : [{
-                            name : '1000 Audiences Included',
+                            name : '1000 Audiences included',
                             active : true
                         },{
                             name : 'Unlimited Paid Audience',
@@ -284,6 +292,9 @@ angular
                             active : false
                         }]
                     }],
+                AHCP : '1 VCore, 0.5GB Memory, 20GB SSD Storage, 1TB Data Transfer',
+                DT : 1,
+                BS : 20,
                 active : false
             },{
                 name : "Fully Managed Plan",
@@ -293,7 +304,7 @@ angular
                     {
                         cat : 'Chatbots',
                         features : [{
-                            name : '1000 Audiences Included',
+                            name : '1000 Audiences included',
                             active : true
                         },{
                             name : 'Unlimited Paid Audience',
@@ -378,6 +389,9 @@ angular
                             active : true
                         }]
                     }],
+                AHCP : '1 VCore, 0.5GB Memory, 20GB SSD Storage, 1TB Data Transfer',
+                DT : 1,
+                BS : 20,
                 active : false
             }
         ];
@@ -386,41 +400,46 @@ angular
                 id : 'complan1',
                 mem : '512 MB Memory',
                 pros : '1 Core Processor',
-                disk : '20 GB SSD Disk',
-                trans : '1 TB Transfer*',
-                price : 14.99
+                disk : 20,
+                trans : 1,
+                price : 14.99,
+                qty : 1
             },{
                 id : 'complan2',
                 mem : '1 GB Memory',
                 pros : '1 Core Processor',
-                disk : '30 GB SSD Disk',
-                trans : '2 TB Transfer*',
-                price : 19.99
+                disk : 30,
+                trans : 2,
+                price : 19.99,
+                qty : 1
             },{
                 id : 'complan3',
                 mem : '2 GB Memory',
                 pros : '1 Core Processor',
-                disk : '40 GB SSD Disk',
-                trans : '3TB Transfer*',
-                price : 29.99
+                disk : 40,
+                trans : 3,
+                price : 29.99,
+                qty : 1
             },{
                 id : 'complan4',
                 mem : '4 GB Memory',
                 pros : '2 Core Processor',
-                disk : '60 GB SSD Disk',
-                trans : '4 TB Transfer*',
-                price : 79.99
+                disk : 60,
+                trans : 4,
+                price : 79.99,
+                qty : 1
             },{
                 id : 'complan5',
                 mem : '8 GB Memory',
                 pros : '2 Core Processor',
-                disk : '80 GB SSD Disk',
-                trans : '5 TB Transfer*',
-                price : 199.99
+                disk : 80,
+                trans : 5,
+                price : 199.99,
+                qty : 1
             }
         ];
         $scope.activeFeatures = $scope.sfPackages[0].features;
-        $scope.selectedComPlan = "";
+        $scope.selectedComPlan = {};
 
         // $scope.features_free = [
         // {
@@ -821,6 +840,8 @@ angular
         });
         $scope.updatePackage = function (pack) {
             $scope.sfPricingEstimation.selectedPlan = pack;
+            tempSelectedPlanTrans = pack.DT;
+            tempSelectedPlanDisk = pack.BS;
             $.each($scope.sfPackages, function (i, p) {
                 p.active = false;
                 if (p.name === pack.name) {
@@ -833,14 +854,20 @@ angular
         $scope.calculateQtyVlaue = function (qty, val) {
             return (qty*val);
         };
-        $scope.updateAutomationComPlan = function (complan) {
-            if (complan.id == $scope.selectedComPlan) {
-                $scope.selectedComPlan = "";
-                $scope.sfPricingEstimation.additionalAutomationPlanPrice = 0;
-                return;
-            }
-            $scope.selectedComPlan = complan.id;
-            $scope.sfPricingEstimation.additionalAutomationPlanPrice = complan.price;
+        $scope.updateAutomationComPlan = function (complan, e) {
+            var elem = e.toElement;
+            if (!$(elem).hasClass('aahdQty')) {
+                if (complan.id == $scope.selectedComPlan.id) {
+                    $scope.selectedComPlan = {};
+                    $scope.sfPricingEstimation.additionalAutomationPlanPrice = 0;
+                    $scope.sfPricingEstimation.selectedPlan.DT = tempSelectedPlanTrans;
+                    $scope.sfPricingEstimation.selectedPlan.BS = tempSelectedPlanDisk;
+                    return;
+                }
+                $scope.selectedComPlan = complan;
+                $scope.sfPricingEstimation.additionalAutomationPlanPrice = complan.price;
+                $scope.updateAAHCP(1);
+            };
         };
         $scope.updateAdditionalAudience = function (qty) {
             if(qty === 0) {
@@ -852,5 +879,10 @@ angular
             }else if(qty >= 10000) {
                 return (qty/1000 * 15)
             }
+        };
+        $scope.updateAAHCP = function (qty) {
+            $scope.sfPricingEstimation.additionalAutomationPlanPrice = $scope.calculateQtyVlaue(qty, $scope.selectedComPlan.price);
+            $scope.sfPricingEstimation.selectedPlan.DT = tempSelectedPlanTrans + $scope.calculateQtyVlaue(qty, $scope.selectedComPlan.trans);
+            $scope.sfPricingEstimation.selectedPlan.BS = tempSelectedPlanDisk + $scope.calculateQtyVlaue(qty, $scope.selectedComPlan.disk);
         };
     }]);

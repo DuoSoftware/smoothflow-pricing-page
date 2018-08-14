@@ -818,3 +818,24 @@ small a, .small a {
     margin-right: 5px;
     color: rgb(203, 214, 226);
 }
+.est-section-table {
+    border: none;
+}
+.est-section-table tr td{
+    border: none;
+    padding: 0;
+}
+.est-section-table tr td .pricing-section .active-pkg-info{
+    margin-top: 57px;
+    color: #682f8e;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f2f3;
+}
+.est-section-table tr>td:first-child{
+    width: 30%;
+    padding-right: 50px;
+    text-align: center;
+}
