@@ -140,8 +140,8 @@ img.video-play-btn {
 	position: relative;
 	border: 1px solid #f1f2f3;
 /* 	padding: 20px; */
-	margin: 15px 0;
-	min-height: 130px;
+	margin: 10px 0 0 0;
+	min-height: 140px;
 	transition: 0.3s all ease-in-out;
 	text-align: center;
 }
@@ -205,9 +205,9 @@ img.video-play-btn {
 
 .checked {
 	position: absolute;
-	bottom: 5px;
-	right: 10px;
-	display: none;
+	top: 0px;
+	right: 5px;
+	/*display: none;*/
 }
 
 .hide-this {
@@ -825,7 +825,7 @@ small a, .small a {
     border: none;
     padding: 0;
 }
-.est-section-table tr td .pricing-section .active-pkg-info{
+.est-section-table tr td .pricing-section .active-pkg-info {
     margin-top: 57px;
     color: #682f8e;
     padding: 10px;
@@ -834,7 +834,7 @@ small a, .small a {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
     border: 1px solid #f1f2f3;
 }
-.est-section-table tr>td:first-child{
+.est-section-table tr>td:first-child {
     width: 30%;
     padding-right: 50px;
     text-align: center;

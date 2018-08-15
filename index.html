@@ -531,9 +531,10 @@
                                                                                 <div class="col-md-9">
                                                                                     <div class="row">
                                                                                         <div class="col-md-4"
+                                                                                             style="padding: 0 5px"
                                                                                              ng-click="updateAutomationComPlan(complan, $event)"
                                                                                              ng-repeat="complan in sfAutomationComPlans">
-                                                                                            <div class="your-plan" ng-class="{'selected' : selectedComPlan.id == complan.id}" id="uapUpTo5000">
+                                                                                            <div class="your-plan" ng-class="{'selected' : complan.selected}" id="uapUpTo5000">
                                                                                                 <ul>
                                                                                                     <li>{{complan.mem}}</li>
                                                                                                     <li>{{complan.pros}}</li>
@@ -542,14 +543,18 @@
                                                                                                 </ul>
                                                                                                 <div>
                                                                                                     <strong>US$ {{complan.price}}</strong>
-                                                                                                    <input class="aahdQty" type="number" min="1" ng-change="updateAAHCP(complan.qty)" ng-model="complan.qty" placeholder="Qty" ng-if="selectedComPlan.id == complan.id" style="width: 30%;border: none;margin: 0 0 5px 10px;height: 25px;text-align: center">
+                                                                                                    <input class="aahdQty" type="number" min="1" ng-change="updateAAHCP(complan)" ng-model="complan.qty" placeholder="Qty" ng-if="complan.selected" style="width: 30%;border: none;margin: 0 0 5px 10px;height: 25px;text-align: center">
+                                                                                                </div>
+                                                                                                <div class="checked" id="slamtick" ng-if="complan.selected">
+                                                                                                    <i class="fa fa-check" area-hidden="true"></i>
+                                                                                                    <div style="font-weight: 600;color: greenyellow">{{complan.qty}}</div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-3 text-right">
-                                                                                    <span class="dollar">$ </span><input type="text" ng-model="sfPricingEstimation.additionalAutomationPlanPrice" name="txtAddAutomationPlanPrice" class="pricing-control" id="txtAddAutomationPlanPrice" value="0" size="5" readonly>
+                                                                                    <span class="dollar">$ </span><input type="text" ng-model="sfPricingEstimation.additionalAutomationPlanPrice | number:2" name="txtAddAutomationPlanPrice" class="pricing-control" id="txtAddAutomationPlanPrice" value="0" size="5" readonly>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -557,11 +562,11 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <div class="pricing-section">
-                                                                            <div class="active-pkg-info">
-                                                                                {{sfPricingEstimation.selectedPlan.DT}}TB Data Transfer available
-                                                                            </div>
-                                                                        </div>
+                                                                        <!--<div class="pricing-section">-->
+                                                                            <!--<div class="active-pkg-info">-->
+                                                                                <!--{{sfPricingEstimation.selectedPlan.DT}}TB Data Transfer available-->
+                                                                            <!--</div>-->
+                                                                        <!--</div>-->
                                                                     </td>
                                                                     <td>
                                                                         <div class="pricing-section">
@@ -603,11 +608,11 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                        <div class="pricing-section">
-                                                                            <div class="active-pkg-info">
-                                                                                {{sfPricingEstimation.selectedPlan.BS}}GB storage available
-                                                                            </div>
-                                                                        </div>
+                                                                        <!--<div class="pricing-section">-->
+                                                                            <!--<div class="active-pkg-info">-->
+                                                                                <!--{{sfPricingEstimation.selectedPlan.BS}}GB storage available-->
+                                                                            <!--</div>-->
+                                                                        <!--</div>-->
                                                                     </td>
                                                                     <td>
                                                                         <div class="pricing-section">

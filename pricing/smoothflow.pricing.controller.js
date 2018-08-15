@@ -2,8 +2,8 @@ angular
     .module('sfPricing', [])
     .controller('sfPricingController', ['$scope', function ($scope) {
         $scope.activeFeatures = [];
-        var tempSelectedPlanTrans = 0;
-        var tempSelectedPlanDisk = 0;
+        // var tempSelectedPlanTrans = 0;
+        // var tempSelectedPlanDisk = 0;
         $scope.sfPackages = [
             {
                 name : "Free Plan",
@@ -403,7 +403,9 @@ angular
                 disk : 20,
                 trans : 1,
                 price : 14.99,
-                qty : 1
+                qtyPrice : 14.99,
+                qty : 1,
+                selected : false
             },{
                 id : 'complan2',
                 mem : '1 GB Memory',
@@ -411,7 +413,9 @@ angular
                 disk : 30,
                 trans : 2,
                 price : 19.99,
-                qty : 1
+                qtyPrice : 19.99,
+                qty : 1,
+                selected : false
             },{
                 id : 'complan3',
                 mem : '2 GB Memory',
@@ -419,7 +423,9 @@ angular
                 disk : 40,
                 trans : 3,
                 price : 29.99,
-                qty : 1
+                qtyPrice : 29.99,
+                qty : 1,
+                selected : false
             },{
                 id : 'complan4',
                 mem : '4 GB Memory',
@@ -427,7 +433,9 @@ angular
                 disk : 60,
                 trans : 4,
                 price : 79.99,
-                qty : 1
+                qtyPrice : 79.99,
+                qty : 1,
+                selected : false
             },{
                 id : 'complan5',
                 mem : '8 GB Memory',
@@ -435,7 +443,9 @@ angular
                 disk : 80,
                 trans : 5,
                 price : 199.99,
-                qty : 1
+                qtyPrice : 199.99,
+                qty : 1,
+                selected : false
             }
         ];
         $scope.activeFeatures = $scope.sfPackages[0].features;
@@ -856,34 +866,51 @@ angular
             return (qty*val);
         };
         $scope.updateAutomationComPlan = function (complan, e) {
+            // var elem = e.toElement;
+            // if (!$(elem).hasClass('aahdQty')) {
+            //     if (complan.id == $scope.selectedComPlan.id) {
+            //         $scope.selectedComPlan = {};
+            //         $scope.sfPricingEstimation.additionalAutomationPlanPrice = 0;
+            //         $scope.sfPricingEstimation.selectedPlan.DT = tempSelectedPlanTrans;
+            //         $scope.sfPricingEstimation.selectedPlan.BS = tempSelectedPlanDisk;
+            //         return;
+            //     }
+            //     $scope.selectedComPlan = complan;
+            //     $scope.sfPricingEstimation.additionalAutomationPlanPrice = complan.price;
+            //     $scope.updateAAHCP(1);
+            // };
             var elem = e.toElement;
             if (!$(elem).hasClass('aahdQty')) {
-                if (complan.id == $scope.selectedComPlan.id) {
-                    $scope.selectedComPlan = {};
-                    $scope.sfPricingEstimation.additionalAutomationPlanPrice = 0;
-                    $scope.sfPricingEstimation.selectedPlan.DT = tempSelectedPlanTrans;
-                    $scope.sfPricingEstimation.selectedPlan.BS = tempSelectedPlanDisk;
-                    return;
+                complan.selected = !complan.selected;
+                $scope.updateAAHCP(complan);
+                if (!complan.selected) {
+                    complan.qty = 1;
                 }
-                $scope.selectedComPlan = complan;
-                $scope.sfPricingEstimation.additionalAutomationPlanPrice = complan.price;
-                $scope.updateAAHCP(1);
-            };
+            }
         };
         $scope.updateAdditionalAudience = function (qty) {
-            if(qty === 0) {
+            if (qty === 0) {
                 return 0;
-            }else if(qty <= 4999) {
+            } else if (qty <= 4999) {
                 return 80
-            }else if(qty > 4999 && qty <= 25000) {
+            } else if (qty > 4999 && qty <= 25000) {
                 return 80
-            }else if(qty > 25000) {
+            } else if (qty > 25000) {
                 return (qty * 0.006)
             }
         };
-        $scope.updateAAHCP = function (qty) {
-            $scope.sfPricingEstimation.additionalAutomationPlanPrice = $scope.calculateQtyVlaue(qty, $scope.selectedComPlan.price);
-            $scope.sfPricingEstimation.selectedPlan.DT = tempSelectedPlanTrans + $scope.calculateQtyVlaue(qty, $scope.selectedComPlan.trans);
-            $scope.sfPricingEstimation.selectedPlan.BS = tempSelectedPlanDisk + $scope.calculateQtyVlaue(qty, $scope.selectedComPlan.disk);
+        $scope.updateAAHCP = function (complan) {
+            // $scope.sfPricingEstimation.additionalAutomationPlanPrice = $scope.calculateQtyVlaue(qty, $scope.selectedComPlan.price);
+            // $scope.sfPricingEstimation.selectedPlan.DT = tempSelectedPlanTrans + $scope.calculateQtyVlaue(qty, $scope.selectedComPlan.trans);
+            // $scope.sfPricingEstimation.selectedPlan.BS = tempSelectedPlanDisk + $scope.calculateQtyVlaue(qty, $scope.selectedComPlan.disk);
+
+            complan.qtyPrice = 0;
+            complan.qtyPrice += $scope.calculateQtyVlaue(complan.price, complan.qty);
+            $scope.sfPricingEstimation.additionalAutomationPlanPrice = 0;
+            angular.forEach($scope.sfAutomationComPlans, function (p, i) {
+                if (p.selected) {
+                    $scope.sfPricingEstimation.additionalAutomationPlanPrice += p.qtyPrice;
+                }
+            });
         };
     }]);
