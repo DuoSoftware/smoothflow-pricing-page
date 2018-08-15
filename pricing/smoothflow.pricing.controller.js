@@ -875,10 +875,10 @@ angular
                 return 0;
             }else if(qty <= 4999) {
                 return 80
-            }else if(qty > 4999 && qty <= 9999) {
+            }else if(qty > 4999 && qty <= 25000) {
                 return 80
-            }else if(qty >= 10000) {
-                return (qty/1000 * 15)
+            }else if(qty > 25000) {
+                return (qty * 0.006)
             }
         };
         $scope.updateAAHCP = function (qty) {
