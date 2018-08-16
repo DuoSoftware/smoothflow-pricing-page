@@ -204,10 +204,14 @@ img.video-play-btn {
 }
 
 .checked {
-	position: absolute;
-	top: 0px;
-	right: 5px;
-	/*display: none;*/
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    /*display: none;*/
+}
+.checked .fa-check-circle{
+    font-size: 20px;
+    color: greenyellow;
 }
 
 .hide-this {
