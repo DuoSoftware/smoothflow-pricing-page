@@ -4,6 +4,7 @@ angular
         $scope.activeFeatures = [];
         // var tempSelectedPlanTrans = 0;
         // var tempSelectedPlanDisk = 0;
+        $scope.dateNow = new Date();
         $scope.sfPackages = [
             {
                 name : "Free Plan",
