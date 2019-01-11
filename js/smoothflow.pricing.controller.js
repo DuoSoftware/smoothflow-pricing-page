@@ -60,6 +60,18 @@ angular
                             active : false
                         }]
                     }, {
+                        cat : 'Dock',
+                        features : [{
+                            name : 'Dock available',
+                            active : true
+                        }]
+                    }, {
+                        cat : 'Pods',
+                        features : [{
+                            name : 'Shared hosting environment',
+                            active : true
+                        }]
+                    }, {
                         cat : 'Technical Support',
                         features : [{
                             name : 'Online Tickets',
@@ -68,7 +80,10 @@ angular
                             name : 'Chat Support',
                             active : false
                         },{
-                            name : 'Voice & Email Support',
+                            name : 'Voice Support',
+                            active : false
+                        },{
+                            name : 'Email Support',
                             active : false
                         }]
                     }, {
@@ -147,13 +162,25 @@ angular
                             name : 'Unlimited Advanced automations',
                             active : true
                         },{
-                            name : 'H1 (1 VCore, 0.5GB Memory, 20GB SSD Storage, 1 TB Data Transfer)',
+                            name : 'Studio included',
                             active : true
                         },{
                             name : 'Automation can be hosted on external servers',
                             active : true
                         },{
                             name : '3rd Party Integrations',
+                            active : true
+                        }]
+                    }, {
+                        cat : 'Dock',
+                        features : [{
+                            name : 'Dock available',
+                            active : true
+                        }]
+                    }, {
+                        cat : 'Pods',
+                        features : [{
+                            name : 'H1 (1 VCore, 0.5GB Memory, 20GB SSD Storage, 1 TB Data Transfer)',
                             active : true
                         }]
                     }, {
@@ -165,7 +192,10 @@ angular
                             name : 'Chat Support',
                             active : true
                         },{
-                            name : 'Voice & Email Support',
+                            name : 'Voice support',
+                            active : true
+                        },{
+                            name : 'Email Support',
                             active : true
                         }]
                     }, {
@@ -244,13 +274,25 @@ angular
                             name : 'Unlimited Advanced automations',
                             active : true
                         },{
-                            name : 'H1 (1 VCore, 0.5GB Memory, 20GB SSD Storage, 1 TB Data Transfer)',
+                            name : 'Studio included',
                             active : true
                         },{
                             name : 'Automation can be hosted on external servers',
                             active : true
                         },{
                             name : '3rd Party Integrations',
+                            active : true
+                        }]
+                    }, {
+                        cat : 'Dock',
+                        features : [{
+                            name : 'Dock available',
+                            active : true
+                        }]
+                    }, {
+                        cat : 'Pods',
+                        features : [{
+                            name : 'H1 (1 VCore, 0.5GB Memory, 20GB SSD Storage, 1 TB Data Transfer)',
                             active : true
                         }]
                     }, {
@@ -262,7 +304,10 @@ angular
                             name : 'Chat Support',
                             active : true
                         },{
-                            name : 'Voice & Email Support available 24×365',
+                            name : 'Voice support available 24×365',
+                            active : true
+                        },{
+                            name : 'Email Support available 24×365',
                             active : true
                         }]
                     }, {
@@ -341,13 +386,25 @@ angular
                             name : 'Unlimited Advanced automations',
                             active : true
                         },{
-                            name : 'H1 (1 VCore, 0.5GB Memory, 20GB SSD Storage, 1 TB Data Transfer)',
+                            name : 'Studio included',
                             active : true
                         },{
                             name : 'Automation can be hosted on external servers',
                             active : true
                         },{
                             name : '3rd Party Integrations',
+                            active : true
+                        }]
+                    }, {
+                        cat : 'Dock',
+                        features : [{
+                            name : 'Dock available',
+                            active : true
+                        }]
+                    }, {
+                        cat : 'Pods',
+                        features : [{
+                            name : 'H1 (1 VCore, 0.5GB Memory, 20GB SSD Storage, 1 TB Data Transfer)',
                             active : true
                         }]
                     }, {
@@ -359,7 +416,10 @@ angular
                             name : 'Chat Support',
                             active : true
                         },{
-                            name : 'Voice & Email Support available 24×365',
+                            name : 'Voice support available 24×365',
+                            active : true
+                        },{
+                            name : 'Email Support available 24×365',
                             active : true
                         }]
                     }, {
@@ -399,55 +459,58 @@ angular
         $scope.sfAutomationComPlans = [
             {
                 id : 'complan1',
+                title : 'Pod micro',
                 mem : '512 MB Memory',
                 pros : '1 Core Processor',
                 disk : 20,
                 trans : 1,
-                price : 14.99,
-                qtyPrice : 14.99,
+                price : 1.99,
+                qtyPrice : 1.99,
                 qty : 1,
                 selected : false
             },{
                 id : 'complan2',
+                title : 'Pod mini',
                 mem : '1 GB Memory',
                 pros : '1 Core Processor',
                 disk : 30,
                 trans : 2,
-                price : 19.99,
-                qtyPrice : 19.99,
-                qty : 1,
-                selected : false
-            },{
-                id : 'complan3',
-                mem : '2 GB Memory',
-                pros : '1 Core Processor',
-                disk : 40,
-                trans : 3,
-                price : 29.99,
-                qtyPrice : 29.99,
-                qty : 1,
-                selected : false
-            },{
-                id : 'complan4',
-                mem : '4 GB Memory',
-                pros : '2 Core Processor',
-                disk : 60,
-                trans : 4,
-                price : 79.99,
-                qtyPrice : 79.99,
-                qty : 1,
-                selected : false
-            },{
-                id : 'complan5',
-                mem : '8 GB Memory',
-                pros : '2 Core Processor',
-                disk : 80,
-                trans : 5,
-                price : 199.99,
-                qtyPrice : 199.99,
+                price : 14.99,
+                qtyPrice : 14.99,
                 qty : 1,
                 selected : false
             }
+            // ,{
+            //     id : 'complan3',
+            //     mem : '2 GB Memory',
+            //     pros : '1 Core Processor',
+            //     disk : 40,
+            //     trans : 3,
+            //     price : 29.99,
+            //     qtyPrice : 29.99,
+            //     qty : 1,
+            //     selected : false
+            // },{
+            //     id : 'complan4',
+            //     mem : '4 GB Memory',
+            //     pros : '2 Core Processor',
+            //     disk : 60,
+            //     trans : 4,
+            //     price : 79.99,
+            //     qtyPrice : 79.99,
+            //     qty : 1,
+            //     selected : false
+            // },{
+            //     id : 'complan5',
+            //     mem : '8 GB Memory',
+            //     pros : '2 Core Processor',
+            //     disk : 80,
+            //     trans : 5,
+            //     price : 199.99,
+            //     qtyPrice : 199.99,
+            //     qty : 1,
+            //     selected : false
+            // }
         ];
         $scope.activeFeatures = $scope.sfPackages[0].features;
         $scope.selectedComPlan = {};
@@ -581,7 +644,7 @@ angular
         //         name : 'Unlimited Advanced automations',
         //         active : true
         //     },{
-        //         name : 'H1 (1 VCore, 0.5GB Memory, 20GB SSD Storage, 1 TB Data Transfer)',
+        //         name : 'Studio included',
         //         active : true
         //     },{
         //         name : 'Automation can be hosted on external servers',
@@ -670,7 +733,7 @@ angular
         //         name : 'Unlimited Advanced automations',
         //         active : true
         //     },{
-        //         name : 'H1 (1 VCore, 0.5GB Memory, 20GB SSD Storage, 1 TB Data Transfer)',
+        //         name : 'Studio included',
         //         active : true
         //     },{
         //         name : 'Automation can be hosted on external servers',
@@ -759,7 +822,7 @@ angular
         //         name : 'Unlimited Advanced automations',
         //         active : true
         //     },{
-        //         name : 'H1 (1 VCore, 0.5GB Memory, 20GB SSD Storage, 1 TB Data Transfer)',
+        //         name : 'Studio included',
         //         active : true
         //     },{
         //         name : 'Automation can be hosted on external servers',

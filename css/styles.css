@@ -76,6 +76,8 @@ li h6 {
 /* Buttons */
 input[type="text"] {
     border: none;
+    width: 80%;
+    text-align: right;
 }
 .btn-primary, .comment-form .submit, .post-password-form input[type="submit"], .btn-primary:hover, .comment-form .submit:hover, .post-password-form input[type="submit"]:hover {
     background-color: #fc4384;
@@ -149,10 +151,18 @@ img.video-play-btn {
     border: 1px solid #f1f2f3;
     border-radius: 5px;
     /* 	padding: 20px; */
-    margin: 10px 0 0 0;
+    margin: 30px 0 0 0;
     min-height: 140px;
     transition: 0.3s all ease-in-out;
     text-align: center;
+}
+.your-plan .your-plan-title{
+    position: absolute;
+    top: -25px;
+    left: 0;
+    right: 0;
+    color: #aaa;
+    margin: auto;
 }
 
 .your-plan:hover, .your-plan:focus, .selected {

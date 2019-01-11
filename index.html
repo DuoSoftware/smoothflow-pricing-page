@@ -85,6 +85,7 @@
 <script type='text/javascript' src='https://smoothflow.io/pricing/js/jquery/jquery-migrate.min.js'></script>
 <script type='text/javascript' src='https://smoothflow.io/pricing/js/angular/angular.js'></script>
 <script type='text/javascript' src='https://smoothflow.io/pricing/js/smoothflow.pricing.controller.js'></script>
+<!--<script type='text/javascript' src='js/smoothflow.pricing.controller.js'></script>-->
 
 <body ng-app="sfPricing" ng-controller="sfPricingController" class="page-template-default page page-id-267 custom-background et_pb_button_helper_class et_transparent_nav et_fixed_nav et_show_nav et_cover_background et_pb_gutter windows et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns4 et_header_style_left et_pb_svg_logo et_pb_pagebuilder_layout et_right_sidebar et_divi_theme et-db et_minified_js et_minified_css">
     <div id="page-container">
@@ -553,7 +554,7 @@
                                                                                                         <div class="col-md-7">
                                                                                                             Above
                                                                                                             25,000: US$
-                                                                                                            0.006 per
+                                                                                                            0.01 per
                                                                                                             person
                                                                                                         </div>
                                                                                                         <div class="col-md-9">
@@ -613,17 +614,18 @@
                                                                                             <td>
                                                                                                 <div class="pricing-section">
                                                                                                     <div class="active-pkg-info">
-                                                                                                        <div ng-repeat="a in sfPricingEstimation.selectedPlan.AHCP.split(',')">{{a}}
-                                                                                                            available</div>
+                                                                                                        <!--<div ng-repeat="a in sfPricingEstimation.selectedPlan.AHCP.split(',')">{{a}}-->
+                                                                                                            <!--available</div>-->
+                                                                                                        1 Pod micro available
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </td>
                                                                                             <td>
                                                                                                 <div class="pricing-section">
-                                                                                                    <h6>Additional
-                                                                                                        Automation
+                                                                                                    <h6>Additional Pods
+                                                                                                        (Automation
                                                                                                         Hosting Compute
-                                                                                                        Plans</h6>
+                                                                                                        Plans)</h6>
                                                                                                     <hr>
                                                                                                     <div class="row">
                                                                                                         <div class="col-md-9">
@@ -637,6 +639,7 @@
                                                                                                                         class="your-plan"
                                                                                                                         ng-class="{'selected' : complan.selected}"
                                                                                                                         id="uapUpTo5000">
+                                                                                                                        <span class="your-plan-title">{{complan.title}}</span>
                                                                                                                         <ul>
                                                                                                                             <li>{{complan.mem}}</li>
                                                                                                                             <li>{{complan.pros}}</li>
