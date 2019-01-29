@@ -298,13 +298,7 @@ angular
                     }, {
                         cat : 'Technical Support',
                         features : [{
-                            name : 'Online Tickets response 24×365',
-                            active : true
-                        },{
                             name : 'Chat Support',
-                            active : true
-                        },{
-                            name : 'Voice support available 24×365',
                             active : true
                         },{
                             name : 'Email Support available 24×365',
@@ -461,22 +455,33 @@ angular
                 id : 'complan1',
                 title : 'Pod micro',
                 mem : '512 MB Memory',
-                pros : '1 Core Processor',
+                pros : '1 Core Virtual Processor',
                 disk : 20,
                 trans : 1,
-                price : 1.99,
-                qtyPrice : 1.99,
+                price : 4.99,
+                qtyPrice : 4.99,
                 qty : 1,
                 selected : false
             },{
                 id : 'complan2',
                 title : 'Pod mini',
                 mem : '1 GB Memory',
-                pros : '1 Core Processor',
+                pros : '1 Core Virtual Processor',
                 disk : 30,
                 trans : 2,
                 price : 14.99,
                 qtyPrice : 14.99,
+                qty : 1,
+                selected : false
+            },{
+                id : 'complan3',
+                title : 'Pod sail',
+                mem : '2 GB Memory',
+                pros : '1 Core Virtual Processor',
+                disk : 60,
+                trans : 3,
+                price : 19.99,
+                qtyPrice : 19.99,
                 qty : 1,
                 selected : false
             }
