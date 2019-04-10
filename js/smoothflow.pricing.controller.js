@@ -8,6 +8,7 @@ angular
         $scope.sfPackages = [
             {
                 name : "Free Plan",
+                code : "free_plan",
                 price : 0.00,
                 billCycle : null,
                 features : [
@@ -119,7 +120,8 @@ angular
                 BS : 0,
                 active : true
             },{
-                name : "Self manage Plan",
+                name : "Self managed Plan",
+                code : "self_managed_plan",
                 price : 24.99,
                 billCycle : "Billed Monthly",
                 features : [
@@ -232,6 +234,7 @@ angular
                 active : false
             },{
                 name : "Kick Starter Plan",
+                code : "kick_starter_plan",
                 price : 149.00,
                 billCycle : "Billed monthly (Annual contract)",
                 features : [
@@ -338,6 +341,7 @@ angular
                 active : false
             },{
                 name : "Fully Managed Plan",
+                code : "fully_managed_plan",
                 price : 299.00,
                 billCycle : "Billed monthly (Annual contract)",
                 features : [
