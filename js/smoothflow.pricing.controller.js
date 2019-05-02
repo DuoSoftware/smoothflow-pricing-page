@@ -8,6 +8,7 @@ angular
         $scope.sfPackages = [
             {
                 name : "Free Plan",
+                name : "Free Plan",
                 code : "free_plan",
                 price : 0.00,
                 billCycle : null,
@@ -884,7 +885,8 @@ angular
         $scope.sfPricingEstimation = {
             selectedPlan : {
                 name : $scope.sfPackages[0].name,
-                price : $scope.sfPackages[0].price
+                price : $scope.sfPackages[0].price,
+                code : $scope.sfPackages[0].code
             },
             additionalChatbots : {
                 qty : 0,
