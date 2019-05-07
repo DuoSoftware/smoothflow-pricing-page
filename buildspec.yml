@@ -8,7 +8,7 @@ phases:
         - echo 'Completed installing'
     build:
       commands:
-        - sudo bower install
+        - bower install --allow-root
         - echo 'Starting to move files'
         - aws s3 sync $CODEBUILD_SRC_DIR/ s3://smoothflow-prod/pricing
       finally:
