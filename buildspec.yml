@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+    install:
+      commands:
+        - npm install -g bower
+      finally:
+        - echo 'Completed installing'
+    build:
+      commands:
+        - bower install --allow-root
+        - echo 'Starting to move files'
+        - aws s3 sync $CODEBUILD_SRC_DIR/ s3://smoothflow-prod/pricing
+      finally:
+        - echo 'Smoothflow Deployement Succeded.'
