@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+    install:
+      commands:
+        - echo 'Nothing to be installed'
+      finally:
+        - echo 'Completed installing'
+    build:
+      commands:
+        - echo 'Starting to move files'
+        - aws s3 sync $CODEBUILD_SRC_DIR/ s3://smoothflow-prod/pricing
+      finally:
+        - echo 'Smoothflow Deployement Succeded.'
